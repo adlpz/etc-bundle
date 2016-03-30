@@ -1,0 +1,12 @@
+services:
+    ect_content_translator:
+        class: Adlpz\ECTBundle\ContentTranslator
+        arguments:
+            - @request_stack
+    ect_twig_extension:
+        class: Adlpz\ECTBundle\Twig\ECTBundleExtension
+        public: false
+            tags:
+              - { name: twig.extension }
+        arguments:
+            - @ect_content_translator
